@@ -1,7 +1,8 @@
 from dataset import Dataset
 from scipy.stats import norm
-import numpy as np
+import numpy as np1
 import pandas as pd
+import numpy as np
 
 def get_wts(arr):
     return norm.cdf(arr,np.mean(arr),np.std(arr))
