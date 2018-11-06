@@ -1,3 +1,5 @@
+import time
+
 import scipy.io as scio
 from matplotlib import pyplot as plt
 import numpy as np
@@ -45,7 +47,7 @@ if __name__ == "__main__":
     X=X[ind]
     y = y[y!=0]
     #Linear SVM with all bands and cv=5
-    
+    start_time = time.time()
     svm=SVC(kernel='linear')
     scores = cross_val_score(svm, X, y, cv=5)
     
@@ -56,6 +58,7 @@ if __name__ == "__main__":
     #print(confusion_matrix(y_test,y_pred))
     print(classification_report(y, predictions))
     # stuff only to run when not called via 'import' here
+    print("--- %s seconds ---" % (time.time() - start_time))
     main()
 
 
